@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6FDC86F2-9767-4A70-87AD-C4402B32A5D7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IP</RootNamespace>
+    <AssemblyName>RUNIP</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.FPSpreadADO, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AxInterop.FPSpreadADO.dll</HintPath>
+    </Reference>
+    <Reference Include="AxInterop.FPUSpreadADO, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AxInterop.FPUSpreadADO.dll</HintPath>
+    </Reference>
+    <Reference Include="COM">
+      <HintPath>..\COM ORA\COM.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Charts.v17.1.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Data.v17.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Printing.v17.1.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.Utils.v17.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraBars.v17.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraCharts.v17.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraCharts.v17.1.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1.Wizard, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraCharts.v17.1.Wizard.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraEditors.v17.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v17.1.Win, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraGrid.v17.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraPrinting.v17.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FarPoint.CalcEngine, Version=1.0.2.2, Culture=neutral, PublicKeyToken=327c3516b1b18457">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=1.0.2.2, Culture=neutral, PublicKeyToken=327c3516b1b18457">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=1.0.9999.0, Culture=neutral, PublicKeyToken=327c3516b1b18457">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FarPoint.PluginCalendar.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=1.0.2.2, Culture=neutral, PublicKeyToken=327c3516b1b18457">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=1.0.2.0, Culture=neutral, PublicKeyToken=327c3516b1b18457">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.FPSpreadADO, Version=8.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Interop.FPSpreadADO.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.FPUSpreadADO, Version=8.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Interop.FPUSpreadADO.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
+    <Reference Include="msdatasrc, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Windows\assembly\GAC\MSDATASRC\7.0.3300.0__b03f5f7f11d50a3a\msdatasrc.dll</HintPath>
+    </Reference>
+    <Reference Include="netchartdir_cp, Version=5.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\netchartdir_cp.dll</HintPath>
+    </Reference>
+    <Reference Include="ShapeControl, Version=1.0.6374.27716, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ShapeControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addons\A1Panel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Addons\A1Panel.Designer.cs">
+      <DependentUpon>A1Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Addons\A1PanelGraphics.cs" />
+    <Compile Include="Addons\Database.cs" />
+    <Compile Include="Addons\GroupboxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Addons\LabelGradient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComVar.cs" />
+    <Compile Include="DIGITAL_SHOP_FLOOR_IP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DIGITAL_SHOP_FLOOR_IP.Designer.cs">
+      <DependentUpon>DIGITAL_SHOP_FLOOR_IP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM_IPEX_KPI_PERFOMANCE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM_IPEX_KPI_PERFOMANCE.designer.cs">
+      <DependentUpon>FORM_IPEX_KPI_PERFOMANCE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Globals.cs" />
+    <Compile Include="HumanResource\FRM_SMT_B_IP_HR_ABSENT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HumanResource\FRM_SMT_B_IP_HR_ABSENT.designer.cs">
+      <DependentUpon>FRM_SMT_B_IP_HR_ABSENT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FORM_INVENTORY_UV_SP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FORM_INVENTORY_UV_SP.designer.cs">
+      <DependentUpon>FORM_INVENTORY_UV_SP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FORM_SMT_IP_LEADTIME_MONTH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FORM_SMT_IP_LEADTIME_MONTH.designer.cs">
+      <DependentUpon>FORM_SMT_IP_LEADTIME_MONTH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FORM_SMT_IP_LEADTIME_WEEK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FORM_SMT_IP_LEADTIME_WEEK.designer.cs">
+      <DependentUpon>FORM_SMT_IP_LEADTIME_WEEK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FORM_SMT_IP_LEADTIME_YEAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FORM_SMT_IP_LEADTIME_YEAR.designer.cs">
+      <DependentUpon>FORM_SMT_IP_LEADTIME_YEAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FRM_BOTTOM_INV_SET_ANALYSIS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FRM_BOTTOM_INV_SET_ANALYSIS.designer.cs">
+      <DependentUpon>FRM_BOTTOM_INV_SET_ANALYSIS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FRM_STK_INV_17.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FRM_STK_INV_17.designer.cs">
+      <DependentUpon>FRM_STK_INV_17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\FORM_LEADTIME_SYN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\FORM_LEADTIME_SYN.designer.cs">
+      <DependentUpon>FORM_LEADTIME_SYN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Machinery\FRM_SMT_IP_OEE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Machinery\FRM_SMT_IP_OEE.designer.cs">
+      <DependentUpon>FRM_SMT_IP_OEE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Machinery\FRM_SMT_IP_OEE_YEAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Machinery\FRM_SMT_IP_OEE_YEAR.designer.cs">
+      <DependentUpon>FRM_SMT_IP_OEE_YEAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Machinery\FORM_IP_CHAMBER_ZONE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Machinery\FORM_IP_CHAMBER_ZONE.designer.cs">
+      <DependentUpon>FORM_IP_CHAMBER_ZONE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\FORM_MOLD_ACTUAL_PLAN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\FORM_MOLD_ACTUAL_PLAN.designer.cs">
+      <DependentUpon>FORM_MOLD_ACTUAL_PLAN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\FORM_MOLD_PRODUCTION.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\FORM_MOLD_PRODUCTION.designer.cs">
+      <DependentUpon>FORM_MOLD_PRODUCTION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\FRM_SMT_BTS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\FRM_SMT_BTS.Designer.cs">
+      <DependentUpon>FRM_SMT_BTS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\FRM_SMT_BTS_YEAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\FRM_SMT_BTS_YEAR.Designer.cs">
+      <DependentUpon>FRM_SMT_BTS_YEAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\FRM_SMT_IP_PROD_DAILY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\FRM_SMT_IP_PROD_DAILY.designer.cs">
+      <DependentUpon>FRM_SMT_IP_PROD_DAILY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\FRM_SMT_IP_PROD_MONTH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\FRM_SMT_IP_PROD_MONTH.designer.cs">
+      <DependentUpon>FRM_SMT_IP_PROD_MONTH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Production\FRM_SMT_IP_PROD_YEAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Production\FRM_SMT_IP_PROD_YEAR.designer.cs">
+      <DependentUpon>FRM_SMT_IP_PROD_YEAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quality\FORM_IP_MOLD_OVERHAUL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Quality\FORM_IP_MOLD_OVERHAUL.designer.cs">
+      <DependentUpon>FORM_IP_MOLD_OVERHAUL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quality\FORM_IP_DEFFECTIVE_STATUS_YEAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Quality\FORM_IP_DEFFECTIVE_STATUS_YEAR.designer.cs">
+      <DependentUpon>FORM_IP_DEFFECTIVE_STATUS_YEAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quality\FORM_IP_DEFFECTIVE_STATUS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Quality\FORM_IP_DEFFECTIVE_STATUS.designer.cs">
+      <DependentUpon>FORM_IP_DEFFECTIVE_STATUS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quality\FRM_SMT_IP_OSD_MONTH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Quality\FRM_SMT_IP_OSD_MONTH.Designer.cs">
+      <DependentUpon>FRM_SMT_IP_OSD_MONTH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quality\FRM_SMT_IP_OSD_YEAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Quality\FRM_SMT_IP_OSD_YEAR.designer.cs">
+      <DependentUpon>FRM_SMT_IP_OSD_YEAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SampleFrm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleFrm2.designer.cs">
+      <DependentUpon>SampleFrm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_ZONE_SELECTION.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_ZONE_SELECTION.Designer.cs">
+      <DependentUpon>UC_ZONE_SELECTION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_ABSENT_V2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_ABSENT_V2.Designer.cs">
+      <DependentUpon>UC_ABSENT_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_INV_V2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_INV_V2.Designer.cs">
+      <DependentUpon>UC_INV_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_MONTH_SELECTION.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_MONTH_SELECTION.Designer.cs">
+      <DependentUpon>UC_MONTH_SELECTION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_POD_V2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_POD_V2.Designer.cs">
+      <DependentUpon>UC_POD_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_PRODUCTION_V2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_PRODUCTION_V2.Designer.cs">
+      <DependentUpon>UC_PRODUCTION_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_OSD_V2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_OSD_V2.Designer.cs">
+      <DependentUpon>UC_OSD_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_MENU_OS_V2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_MENU_OS_V2.Designer.cs">
+      <DependentUpon>UC_MENU_OS_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_ABSENT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_ABSENT.Designer.cs">
+      <DependentUpon>UC_ABSENT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_DWMY.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_DWMY.Designer.cs">
+      <DependentUpon>UC_DWMY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_INV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_INV.Designer.cs">
+      <DependentUpon>UC_INV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_POD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_POD.Designer.cs">
+      <DependentUpon>UC_POD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_PRODUCTION.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_PRODUCTION.Designer.cs">
+      <DependentUpon>UC_PRODUCTION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_MENU.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_MENU.Designer.cs">
+      <DependentUpon>UC_MENU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_MENU_OS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_MENU_OS.Designer.cs">
+      <DependentUpon>UC_MENU_OS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_OSD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_OSD.Designer.cs">
+      <DependentUpon>UC_OSD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UC_YEAR_SELECTION.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UC_YEAR_SELECTION.Designer.cs">
+      <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DIGITAL_SHOP_FLOOR_IP.resx">
+      <DependentUpon>DIGITAL_SHOP_FLOOR_IP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM_IPEX_KPI_PERFOMANCE.resx">
+      <DependentUpon>FORM_IPEX_KPI_PERFOMANCE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HumanResource\FRM_SMT_B_IP_HR_ABSENT.resx">
+      <DependentUpon>FRM_SMT_B_IP_HR_ABSENT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FORM_INVENTORY_UV_SP.resx">
+      <DependentUpon>FORM_INVENTORY_UV_SP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FORM_SMT_IP_LEADTIME_MONTH.resx">
+      <DependentUpon>FORM_SMT_IP_LEADTIME_MONTH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FORM_SMT_IP_LEADTIME_WEEK.resx">
+      <DependentUpon>FORM_SMT_IP_LEADTIME_WEEK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FORM_SMT_IP_LEADTIME_YEAR.resx">
+      <DependentUpon>FORM_SMT_IP_LEADTIME_YEAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FRM_BOTTOM_INV_SET_ANALYSIS.resx">
+      <DependentUpon>FRM_BOTTOM_INV_SET_ANALYSIS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FRM_STK_INV_17.resx">
+      <DependentUpon>FRM_STK_INV_17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\FORM_LEADTIME_SYN.resx">
+      <DependentUpon>FORM_LEADTIME_SYN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Machinery\FRM_SMT_IP_OEE.resx">
+      <DependentUpon>FRM_SMT_IP_OEE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Machinery\FRM_SMT_IP_OEE_YEAR.resx">
+      <DependentUpon>FRM_SMT_IP_OEE_YEAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Machinery\FORM_IP_CHAMBER_ZONE.resx">
+      <DependentUpon>FORM_IP_CHAMBER_ZONE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\FORM_MOLD_ACTUAL_PLAN.resx">
+      <DependentUpon>FORM_MOLD_ACTUAL_PLAN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\FORM_MOLD_PRODUCTION.resx">
+      <DependentUpon>FORM_MOLD_PRODUCTION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\FRM_SMT_BTS.resx">
+      <DependentUpon>FRM_SMT_BTS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\FRM_SMT_BTS_YEAR.resx">
+      <DependentUpon>FRM_SMT_BTS_YEAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\FRM_SMT_IP_PROD_DAILY.resx">
+      <DependentUpon>FRM_SMT_IP_PROD_DAILY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\FRM_SMT_IP_PROD_MONTH.resx">
+      <DependentUpon>FRM_SMT_IP_PROD_MONTH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production\FRM_SMT_IP_PROD_YEAR.resx">
+      <DependentUpon>FRM_SMT_IP_PROD_YEAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Quality\FORM_IP_MOLD_OVERHAUL.resx">
+      <DependentUpon>FORM_IP_MOLD_OVERHAUL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quality\FORM_IP_DEFFECTIVE_STATUS_YEAR.resx">
+      <DependentUpon>FORM_IP_DEFFECTIVE_STATUS_YEAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quality\FORM_IP_DEFFECTIVE_STATUS.resx">
+      <DependentUpon>FORM_IP_DEFFECTIVE_STATUS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quality\FRM_SMT_IP_OSD_MONTH.resx">
+      <DependentUpon>FRM_SMT_IP_OSD_MONTH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quality\FRM_SMT_IP_OSD_YEAR.resx">
+      <DependentUpon>FRM_SMT_IP_OSD_YEAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleFrm2.resx">
+      <DependentUpon>SampleFrm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_ZONE_SELECTION.resx">
+      <DependentUpon>UC_ZONE_SELECTION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_ABSENT_V2.resx">
+      <DependentUpon>UC_ABSENT_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_INV_V2.resx">
+      <DependentUpon>UC_INV_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_MONTH_SELECTION.resx">
+      <DependentUpon>UC_MONTH_SELECTION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_POD_V2.resx">
+      <DependentUpon>UC_POD_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_PRODUCTION_V2.resx">
+      <DependentUpon>UC_PRODUCTION_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_OSD_V2.resx">
+      <DependentUpon>UC_OSD_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_MENU_OS_V2.resx">
+      <DependentUpon>UC_MENU_OS_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_ABSENT.resx">
+      <DependentUpon>UC_ABSENT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_DWMY.resx">
+      <DependentUpon>UC_DWMY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_INV.resx">
+      <DependentUpon>UC_INV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_POD.resx">
+      <DependentUpon>UC_POD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_PRODUCTION.resx">
+      <DependentUpon>UC_PRODUCTION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_MENU.resx">
+      <DependentUpon>UC_MENU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_MENU_OS.resx">
+      <DependentUpon>UC_MENU_OS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_OSD.resx">
+      <DependentUpon>UC_OSD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UC_YEAR_SELECTION.resx">
+      <DependentUpon>UC_YEAR_SELECTION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="bin\Debug\RUNIP.exe.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\productivity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Qual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Qual_Rate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\absent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANDON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\def.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\equip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\human.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invtorySub.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leadtime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiskill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NPI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\osd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PFC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prod_result.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prodresult.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prodtivity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\production-management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mas-inventory-system.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\load_round.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back-Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BtnMainG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\under-construction.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trig.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car_vc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\housse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line_pro.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trucks.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\RUNIP.exe" />
+    <Content Include="bin\Debug\RUNIP.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
