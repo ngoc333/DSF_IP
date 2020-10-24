@@ -133,26 +133,6 @@
       <HintPath>bin\Debug\DevExpress.XtraPrinting.v17.1.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FarPoint.CalcEngine, Version=1.0.2.2, Culture=neutral, PublicKeyToken=327c3516b1b18457">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\FarPoint.CalcEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="FarPoint.Excel, Version=1.0.2.2, Culture=neutral, PublicKeyToken=327c3516b1b18457">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\FarPoint.Excel.dll</HintPath>
-    </Reference>
-    <Reference Include="FarPoint.PluginCalendar.WinForms, Version=1.0.9999.0, Culture=neutral, PublicKeyToken=327c3516b1b18457">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\FarPoint.PluginCalendar.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="FarPoint.Win, Version=1.0.2.2, Culture=neutral, PublicKeyToken=327c3516b1b18457">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\FarPoint.Win.dll</HintPath>
-    </Reference>
-    <Reference Include="FarPoint.Win.Spread, Version=1.0.2.0, Culture=neutral, PublicKeyToken=327c3516b1b18457">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\FarPoint.Win.Spread.dll</HintPath>
-    </Reference>
     <Reference Include="Interop.FPSpreadADO, Version=8.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
