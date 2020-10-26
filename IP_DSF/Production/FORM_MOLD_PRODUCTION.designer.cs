@@ -57,9 +57,46 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.axGrid = new AxFPSpreadADO.AxfpSpread();
+            this.grdviewMachine = new DevExpress.XtraGrid.GridControl();
+            this.gvwviewMachine = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand10 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand16 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand11 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand17 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand12 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand18 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand14 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand19 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand15 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand20 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridModel = new DevExpress.XtraGrid.GridControl();
+            this.bandedGridModel = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand29 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.SHORT_NAME = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.NO = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.MOLD_INPUT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand33 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.MCS = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.COLOR = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn11 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.pnHeader.SuspendLayout();
             this.pnButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdviewMachine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvwviewMachine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridModel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bandedGridModel)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -67,7 +104,7 @@
             this.label1.BackColor = System.Drawing.Color.Green;
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(23, 168);
+            this.label1.Location = new System.Drawing.Point(23, 152);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 30);
             this.label1.TabIndex = 662;
@@ -79,7 +116,7 @@
             this.label2.BackColor = System.Drawing.Color.Green;
             this.label2.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(611, 168);
+            this.label2.Location = new System.Drawing.Point(611, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(232, 30);
             this.label2.TabIndex = 663;
@@ -91,7 +128,7 @@
             this.label3.BackColor = System.Drawing.Color.Green;
             this.label3.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1205, 168);
+            this.label3.Location = new System.Drawing.Point(1205, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(235, 30);
             this.label3.TabIndex = 664;
@@ -112,7 +149,7 @@
             this.label4.BackColor = System.Drawing.Color.Green;
             this.label4.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(316, 168);
+            this.label4.Location = new System.Drawing.Point(316, 152);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(233, 30);
             this.label4.TabIndex = 671;
@@ -124,7 +161,7 @@
             this.label5.BackColor = System.Drawing.Color.Green;
             this.label5.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(909, 168);
+            this.label5.Location = new System.Drawing.Point(909, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(232, 30);
             this.label5.TabIndex = 672;
@@ -136,7 +173,7 @@
             this.label6.BackColor = System.Drawing.Color.Green;
             this.label6.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(1505, 168);
+            this.label6.Location = new System.Drawing.Point(1505, 152);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(232, 30);
             this.label6.TabIndex = 673;
@@ -148,7 +185,7 @@
             this.label7.BackColor = System.Drawing.Color.Green;
             this.label7.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(1799, 168);
+            this.label7.Location = new System.Drawing.Point(1799, 152);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 30);
             this.label7.TabIndex = 674;
@@ -237,11 +274,11 @@
             // 
             this.lblShift.AutoSize = true;
             this.lblShift.BackColor = System.Drawing.Color.Transparent;
-            this.lblShift.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShift.Font = new System.Drawing.Font("Calibri", 32F, System.Drawing.FontStyle.Bold);
             this.lblShift.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblShift.Location = new System.Drawing.Point(784, 108);
+            this.lblShift.Location = new System.Drawing.Point(784, 105);
             this.lblShift.Name = "lblShift";
-            this.lblShift.Size = new System.Drawing.Size(172, 59);
+            this.lblShift.Size = new System.Drawing.Size(154, 53);
             this.lblShift.TabIndex = 683;
             this.lblShift.Text = "SHIFT 1";
             // 
@@ -371,29 +408,455 @@
             this.axGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.axGrid.DataSource = null;
-            this.axGrid.Location = new System.Drawing.Point(17, 209);
+            this.axGrid.Location = new System.Drawing.Point(9, 185);
             this.axGrid.Name = "axGrid";
             this.axGrid.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axGrid.OcxState")));
-            this.axGrid.Size = new System.Drawing.Size(1893, 850);
+            this.axGrid.Size = new System.Drawing.Size(1893, 623);
             this.axGrid.TabIndex = 660;
             this.axGrid.ClickEvent += new AxFPSpreadADO._DSpreadEvents_ClickEventHandler(this.axGrid_ClickEvent);
             this.axGrid.BeforeEditMode += new AxFPSpreadADO._DSpreadEvents_BeforeEditModeEventHandler(this.axGrid_BeforeEditMode);
+            // 
+            // grdviewMachine
+            // 
+            this.grdviewMachine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdviewMachine.Location = new System.Drawing.Point(12, 833);
+            this.grdviewMachine.LookAndFeel.SkinName = "Office 2010 Blue";
+            this.grdviewMachine.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.grdviewMachine.MainView = this.gvwviewMachine;
+            this.grdviewMachine.Name = "grdviewMachine";
+            this.grdviewMachine.Size = new System.Drawing.Size(824, 244);
+            this.grdviewMachine.TabIndex = 701;
+            this.grdviewMachine.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvwviewMachine});
+            // 
+            // gvwviewMachine
+            // 
+            this.gvwviewMachine.Appearance.BandPanel.BackColor = System.Drawing.Color.Gray;
+            this.gvwviewMachine.Appearance.BandPanel.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvwviewMachine.Appearance.BandPanel.ForeColor = System.Drawing.Color.White;
+            this.gvwviewMachine.Appearance.BandPanel.Options.UseBackColor = true;
+            this.gvwviewMachine.Appearance.BandPanel.Options.UseFont = true;
+            this.gvwviewMachine.Appearance.BandPanel.Options.UseForeColor = true;
+            this.gvwviewMachine.Appearance.BandPanel.Options.UseTextOptions = true;
+            this.gvwviewMachine.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gvwviewMachine.Appearance.BandPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gvwviewMachine.Appearance.Row.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvwviewMachine.Appearance.Row.Options.UseFont = true;
+            this.gvwviewMachine.Appearance.Row.Options.UseTextOptions = true;
+            this.gvwviewMachine.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gvwviewMachine.Appearance.Row.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gvwviewMachine.BandPanelRowHeight = 40;
+            this.gvwviewMachine.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand10,
+            this.gridBand11,
+            this.gridBand12,
+            this.gridBand14,
+            this.gridBand15});
+            this.gvwviewMachine.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.bandedGridColumn1,
+            this.bandedGridColumn3,
+            this.bandedGridColumn2,
+            this.bandedGridColumn4,
+            this.bandedGridColumn5,
+            this.bandedGridColumn6});
+            this.gvwviewMachine.GridControl = this.grdviewMachine;
+            this.gvwviewMachine.Name = "gvwviewMachine";
+            this.gvwviewMachine.OptionsCustomization.AllowBandMoving = false;
+            this.gvwviewMachine.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gvwviewMachine.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.gvwviewMachine.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
+            this.gvwviewMachine.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gvwviewMachine.OptionsView.ShowColumnHeaders = false;
+            this.gvwviewMachine.OptionsView.ShowGroupPanel = false;
+            this.gvwviewMachine.OptionsView.ShowIndicator = false;
+            this.gvwviewMachine.PaintStyleName = "Flat";
+            this.gvwviewMachine.RowHeight = 28;
+            // 
+            // gridBand10
+            // 
+            this.gridBand10.AppearanceHeader.BackColor = System.Drawing.Color.DodgerBlue;
+            this.gridBand10.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand10.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand10.AppearanceHeader.Options.UseFont = true;
+            this.gridBand10.Caption = "MACHINE NAME";
+            this.gridBand10.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand16});
+            this.gridBand10.Name = "gridBand10";
+            this.gridBand10.VisibleIndex = 0;
+            this.gridBand10.Width = 273;
+            // 
+            // gridBand16
+            // 
+            this.gridBand16.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
+            this.gridBand16.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand16.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand16.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand16.AppearanceHeader.Options.UseFont = true;
+            this.gridBand16.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand16.Caption = "TOTAL";
+            this.gridBand16.Columns.Add(this.bandedGridColumn1);
+            this.gridBand16.Name = "gridBand16";
+            this.gridBand16.VisibleIndex = 0;
+            this.gridBand16.Width = 273;
+            // 
+            // bandedGridColumn1
+            // 
+            this.bandedGridColumn1.Caption = "MACHINE_NAME";
+            this.bandedGridColumn1.FieldName = "MACHINE_NAME";
+            this.bandedGridColumn1.Name = "bandedGridColumn1";
+            this.bandedGridColumn1.Visible = true;
+            this.bandedGridColumn1.Width = 273;
+            // 
+            // gridBand11
+            // 
+            this.gridBand11.AppearanceHeader.BackColor = System.Drawing.Color.DodgerBlue;
+            this.gridBand11.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand11.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand11.AppearanceHeader.Options.UseFont = true;
+            this.gridBand11.Caption = "MOLD CAPACITY";
+            this.gridBand11.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand17});
+            this.gridBand11.Name = "gridBand11";
+            this.gridBand11.VisibleIndex = 1;
+            this.gridBand11.Width = 174;
+            // 
+            // gridBand17
+            // 
+            this.gridBand17.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
+            this.gridBand17.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand17.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand17.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand17.AppearanceHeader.Options.UseFont = true;
+            this.gridBand17.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand17.Columns.Add(this.bandedGridColumn2);
+            this.gridBand17.Columns.Add(this.bandedGridColumn3);
+            this.gridBand17.Name = "gridBand17";
+            this.gridBand17.VisibleIndex = 0;
+            this.gridBand17.Width = 174;
+            // 
+            // bandedGridColumn2
+            // 
+            this.bandedGridColumn2.Caption = "MOLD";
+            this.bandedGridColumn2.FieldName = "MOLD";
+            this.bandedGridColumn2.Name = "bandedGridColumn2";
+            this.bandedGridColumn2.Visible = true;
+            this.bandedGridColumn2.Width = 174;
+            // 
+            // bandedGridColumn3
+            // 
+            this.bandedGridColumn3.Caption = "MACHINE_TYPE";
+            this.bandedGridColumn3.FieldName = "MACHINE_TYPE";
+            this.bandedGridColumn3.Name = "bandedGridColumn3";
+            this.bandedGridColumn3.Width = 106;
+            // 
+            // gridBand12
+            // 
+            this.gridBand12.AppearanceHeader.BackColor = System.Drawing.Color.DodgerBlue;
+            this.gridBand12.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand12.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand12.AppearanceHeader.Options.UseFont = true;
+            this.gridBand12.Caption = "MOLD INPUT";
+            this.gridBand12.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand18});
+            this.gridBand12.Name = "gridBand12";
+            this.gridBand12.VisibleIndex = 2;
+            this.gridBand12.Width = 136;
+            // 
+            // gridBand18
+            // 
+            this.gridBand18.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
+            this.gridBand18.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold);
+            this.gridBand18.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand18.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand18.AppearanceHeader.Options.UseFont = true;
+            this.gridBand18.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand18.Columns.Add(this.bandedGridColumn4);
+            this.gridBand18.Name = "gridBand18";
+            this.gridBand18.VisibleIndex = 0;
+            this.gridBand18.Width = 136;
+            // 
+            // bandedGridColumn4
+            // 
+            this.bandedGridColumn4.Caption = "INPUT";
+            this.bandedGridColumn4.FieldName = "INPUT";
+            this.bandedGridColumn4.Name = "bandedGridColumn4";
+            this.bandedGridColumn4.Visible = true;
+            this.bandedGridColumn4.Width = 136;
+            // 
+            // gridBand14
+            // 
+            this.gridBand14.AppearanceHeader.BackColor = System.Drawing.Color.DodgerBlue;
+            this.gridBand14.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand14.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand14.AppearanceHeader.Options.UseFont = true;
+            this.gridBand14.Caption = "BALANCE";
+            this.gridBand14.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand19});
+            this.gridBand14.Name = "gridBand14";
+            this.gridBand14.VisibleIndex = 3;
+            this.gridBand14.Width = 115;
+            // 
+            // gridBand19
+            // 
+            this.gridBand19.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
+            this.gridBand19.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold);
+            this.gridBand19.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand19.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand19.AppearanceHeader.Options.UseFont = true;
+            this.gridBand19.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand19.Columns.Add(this.bandedGridColumn5);
+            this.gridBand19.Name = "gridBand19";
+            this.gridBand19.VisibleIndex = 0;
+            this.gridBand19.Width = 115;
+            // 
+            // bandedGridColumn5
+            // 
+            this.bandedGridColumn5.Caption = "BALANCE";
+            this.bandedGridColumn5.FieldName = "BALANCE";
+            this.bandedGridColumn5.Name = "bandedGridColumn5";
+            this.bandedGridColumn5.Visible = true;
+            this.bandedGridColumn5.Width = 115;
+            // 
+            // gridBand15
+            // 
+            this.gridBand15.AppearanceHeader.BackColor = System.Drawing.Color.DodgerBlue;
+            this.gridBand15.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand15.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand15.AppearanceHeader.Options.UseFont = true;
+            this.gridBand15.Caption = "QTY";
+            this.gridBand15.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand20});
+            this.gridBand15.Name = "gridBand15";
+            this.gridBand15.VisibleIndex = 4;
+            this.gridBand15.Width = 122;
+            // 
+            // gridBand20
+            // 
+            this.gridBand20.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
+            this.gridBand20.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold);
+            this.gridBand20.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand20.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand20.AppearanceHeader.Options.UseFont = true;
+            this.gridBand20.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand20.Columns.Add(this.bandedGridColumn6);
+            this.gridBand20.Name = "gridBand20";
+            this.gridBand20.VisibleIndex = 0;
+            this.gridBand20.Width = 122;
+            // 
+            // bandedGridColumn6
+            // 
+            this.bandedGridColumn6.Caption = "QTY";
+            this.bandedGridColumn6.FieldName = "QTY";
+            this.bandedGridColumn6.Name = "bandedGridColumn6";
+            this.bandedGridColumn6.Visible = true;
+            this.bandedGridColumn6.Width = 122;
+            // 
+            // gridModel
+            // 
+            this.gridModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridModel.Location = new System.Drawing.Point(899, 830);
+            this.gridModel.LookAndFeel.SkinName = "Office 2010 Blue";
+            this.gridModel.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.gridModel.MainView = this.bandedGridModel;
+            this.gridModel.Name = "gridModel";
+            this.gridModel.Size = new System.Drawing.Size(931, 244);
+            this.gridModel.TabIndex = 705;
+            this.gridModel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.bandedGridModel});
+            // 
+            // bandedGridModel
+            // 
+            this.bandedGridModel.Appearance.BandPanel.BackColor = System.Drawing.Color.Gray;
+            this.bandedGridModel.Appearance.BandPanel.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bandedGridModel.Appearance.BandPanel.ForeColor = System.Drawing.Color.White;
+            this.bandedGridModel.Appearance.BandPanel.Options.UseBackColor = true;
+            this.bandedGridModel.Appearance.BandPanel.Options.UseFont = true;
+            this.bandedGridModel.Appearance.BandPanel.Options.UseForeColor = true;
+            this.bandedGridModel.Appearance.BandPanel.Options.UseTextOptions = true;
+            this.bandedGridModel.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bandedGridModel.Appearance.BandPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.bandedGridModel.Appearance.Row.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bandedGridModel.Appearance.Row.Options.UseFont = true;
+            this.bandedGridModel.Appearance.Row.Options.UseTextOptions = true;
+            this.bandedGridModel.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bandedGridModel.Appearance.Row.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.bandedGridModel.BandPanelRowHeight = 40;
+            this.bandedGridModel.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand29,
+            this.gridBand2,
+            this.gridBand33});
+            this.bandedGridModel.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.NO,
+            this.SHORT_NAME,
+            this.MCS,
+            this.COLOR,
+            this.bandedGridColumn11,
+            this.bandedGridColumn12,
+            this.MOLD_INPUT});
+            this.bandedGridModel.GridControl = this.gridModel;
+            this.bandedGridModel.Name = "bandedGridModel";
+            this.bandedGridModel.OptionsCustomization.AllowBandMoving = false;
+            this.bandedGridModel.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.bandedGridModel.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.bandedGridModel.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect;
+            this.bandedGridModel.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.bandedGridModel.OptionsView.ShowColumnHeaders = false;
+            this.bandedGridModel.OptionsView.ShowGroupPanel = false;
+            this.bandedGridModel.OptionsView.ShowIndicator = false;
+            this.bandedGridModel.PaintStyleName = "Flat";
+            this.bandedGridModel.RowHeight = 28;
+            // 
+            // gridBand29
+            // 
+            this.gridBand29.AppearanceHeader.BackColor = System.Drawing.Color.DodgerBlue;
+            this.gridBand29.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand29.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand29.AppearanceHeader.Options.UseFont = true;
+            this.gridBand29.Caption = "MODEL NAME";
+            this.gridBand29.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand3});
+            this.gridBand29.Name = "gridBand29";
+            this.gridBand29.VisibleIndex = 0;
+            this.gridBand29.Width = 131;
+            // 
+            // gridBand3
+            // 
+            this.gridBand3.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
+            this.gridBand3.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold);
+            this.gridBand3.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand3.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand3.AppearanceHeader.Options.UseFont = true;
+            this.gridBand3.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand3.Caption = "TOTAL";
+            this.gridBand3.Columns.Add(this.SHORT_NAME);
+            this.gridBand3.Columns.Add(this.NO);
+            this.gridBand3.Name = "gridBand3";
+            this.gridBand3.VisibleIndex = 0;
+            this.gridBand3.Width = 131;
+            // 
+            // SHORT_NAME
+            // 
+            this.SHORT_NAME.Caption = "SHORT_NAME";
+            this.SHORT_NAME.FieldName = "SHORT_NAME";
+            this.SHORT_NAME.Name = "SHORT_NAME";
+            this.SHORT_NAME.Visible = true;
+            this.SHORT_NAME.Width = 131;
+            // 
+            // NO
+            // 
+            this.NO.Caption = "NO";
+            this.NO.FieldName = "NO";
+            this.NO.Name = "NO";
+            this.NO.Width = 159;
+            // 
+            // gridBand2
+            // 
+            this.gridBand2.AppearanceHeader.BackColor = System.Drawing.Color.DodgerBlue;
+            this.gridBand2.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand2.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand2.AppearanceHeader.Options.UseFont = true;
+            this.gridBand2.Caption = "MOLD INPUT";
+            this.gridBand2.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand4});
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.VisibleIndex = 1;
+            this.gridBand2.Width = 75;
+            // 
+            // gridBand4
+            // 
+            this.gridBand4.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
+            this.gridBand4.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold);
+            this.gridBand4.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand4.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand4.AppearanceHeader.Options.UseFont = true;
+            this.gridBand4.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand4.Columns.Add(this.MOLD_INPUT);
+            this.gridBand4.Name = "gridBand4";
+            this.gridBand4.VisibleIndex = 0;
+            this.gridBand4.Width = 75;
+            // 
+            // MOLD_INPUT
+            // 
+            this.MOLD_INPUT.Caption = "MOLD_INPUT";
+            this.MOLD_INPUT.FieldName = "MOLD_INPUT";
+            this.MOLD_INPUT.Name = "MOLD_INPUT";
+            this.MOLD_INPUT.Visible = true;
+            // 
+            // gridBand33
+            // 
+            this.gridBand33.AppearanceHeader.BackColor = System.Drawing.Color.DodgerBlue;
+            this.gridBand33.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBand33.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand33.AppearanceHeader.Options.UseFont = true;
+            this.gridBand33.Caption = "PLAN";
+            this.gridBand33.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand5});
+            this.gridBand33.Name = "gridBand33";
+            this.gridBand33.VisibleIndex = 2;
+            this.gridBand33.Width = 80;
+            // 
+            // gridBand5
+            // 
+            this.gridBand5.AppearanceHeader.BackColor = System.Drawing.Color.Lime;
+            this.gridBand5.AppearanceHeader.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold);
+            this.gridBand5.AppearanceHeader.ForeColor = System.Drawing.Color.Black;
+            this.gridBand5.AppearanceHeader.Options.UseBackColor = true;
+            this.gridBand5.AppearanceHeader.Options.UseFont = true;
+            this.gridBand5.AppearanceHeader.Options.UseForeColor = true;
+            this.gridBand5.Columns.Add(this.bandedGridColumn12);
+            this.gridBand5.Name = "gridBand5";
+            this.gridBand5.VisibleIndex = 0;
+            this.gridBand5.Width = 80;
+            // 
+            // bandedGridColumn12
+            // 
+            this.bandedGridColumn12.Caption = "QTY";
+            this.bandedGridColumn12.FieldName = "QTY";
+            this.bandedGridColumn12.Name = "bandedGridColumn12";
+            this.bandedGridColumn12.Visible = true;
+            this.bandedGridColumn12.Width = 80;
+            // 
+            // MCS
+            // 
+            this.MCS.Caption = "MCS";
+            this.MCS.FieldName = "MCS";
+            this.MCS.Name = "MCS";
+            this.MCS.Visible = true;
+            this.MCS.Width = 104;
+            // 
+            // COLOR
+            // 
+            this.COLOR.Caption = "COLOR";
+            this.COLOR.FieldName = "COLOR";
+            this.COLOR.Name = "COLOR";
+            this.COLOR.Visible = true;
+            this.COLOR.Width = 79;
+            // 
+            // bandedGridColumn11
+            // 
+            this.bandedGridColumn11.Caption = "MOLD";
+            this.bandedGridColumn11.FieldName = "MOLD";
+            this.bandedGridColumn11.Name = "bandedGridColumn11";
+            this.bandedGridColumn11.Visible = true;
+            this.bandedGridColumn11.Width = 80;
             // 
             // FORM_MOLD_PRODUCTION
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1920, 980);
+            this.ClientSize = new System.Drawing.Size(1920, 1081);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.gridModel);
+            this.Controls.Add(this.grdviewMachine);
             this.Controls.Add(this.pnHeader);
             this.Controls.Add(this.lblShift);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.axGrid);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -406,6 +869,10 @@
             this.pnHeader.ResumeLayout(false);
             this.pnButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdviewMachine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvwviewMachine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridModel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bandedGridModel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,5 +907,38 @@
         protected DevExpress.XtraEditors.SimpleButton cmdDay;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTitle2;
+        private DevExpress.XtraGrid.GridControl grdviewMachine;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView gvwviewMachine;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand10;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand16;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand11;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand17;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn2;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn3;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand12;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand18;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn4;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand14;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand19;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn5;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand15;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand20;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn6;
+        private DevExpress.XtraGrid.GridControl gridModel;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView bandedGridModel;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand29;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn SHORT_NAME;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn NO;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn MOLD_INPUT;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand33;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn12;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn MCS;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn COLOR;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn11;
     }
 }

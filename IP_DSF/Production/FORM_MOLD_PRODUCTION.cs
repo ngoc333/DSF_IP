@@ -92,7 +92,7 @@ namespace IP
             axGrid.ActiveCellHighlightStyle = FPSpreadADO.ActiveCellHighlightStyleConstants.ActiveCellHighlightStyleOff;
             axGrid.ColHeaderRows = 0;
             axGrid.ScrollBars = FPSpreadADO.ScrollBarsConstants.ScrollBarsNone;
-            axGrid.Font = new System.Drawing.Font("Calibri", 12);
+            axGrid.Font = new System.Drawing.Font("Calibri", 9);
             axGrid.BorderStyle = FPSpreadADO.BorderStyleConstants.BorderStyleNone;
             
            // axGrid.BorderStyle = FPSpreadADO.BorderStyleConstants.BorderStyleNone;
@@ -113,7 +113,7 @@ namespace IP
             //  axGrid.SetCellBorder((int)G.S1_M1_L_Tar, 1, (int)G.S3_M2_R_Cur, axGrid.MaxRows, FPSpreadADO.CellBorderIndexConstants.CellBorderIndexOutline, 0, FPSpreadADO.CellBorderStyleConstants.CellBorderStyleBlank);
             for (int irow = 2; irow <= 50; irow++)
             {
-                axGrid.set_RowHeight(irow, 16);
+                axGrid.set_RowHeight(irow, 11);
 
             }
 
@@ -144,7 +144,7 @@ namespace IP
                 axGrid.Col = icol;
                 axGrid.Row = irow;
                 axGrid.Text = _dt_layout.Rows[idt]["MACHINE_NAME"].ToString();
-                axGrid.Font = new System.Drawing.Font("Calibri", 11, FontStyle.Bold);
+                axGrid.Font = new System.Drawing.Font("Calibri", 9, FontStyle.Bold);
                 axGrid.BackColor = Color.DodgerBlue;
                 axGrid.ForeColor = Color.White;
                 axGrid.TypeVAlign = FPSpreadADO.TypeVAlignConstants.TypeVAlignTop;
@@ -406,14 +406,73 @@ namespace IP
 
         public void loaddata()
         {
-           // _dt = SEL_APS_PLAN_ACTUAL();
+            // _dt = SEL_APS_PLAN_ACTUAL();
 
             //label1.Text = "";
             //label2.Text = "";
             //label3.Text = "";
-           // lbl_zone.Text = "";
-            
+            // lbl_zone.Text = "";
+
             //create_default();
+            DataTable dtMachine = SEL_APS_PLAN_ACTUAL_IP("Q");
+            DataTable dtModel = SEL_APS_PLAN_ACTUAL_IP("Q1");
+
+
+            if (dtMachine != null)
+            {
+               // grdviewMachine.DataSource = dtMachine;
+                grdviewMachine.DataSource = dtMachine.Select("MACHINE_NAME <>'TOTAL'", "MACHINE_NAME").CopyToDataTable();
+                gvwviewMachine.Columns[2].OwnerBand.Caption = dtMachine.Rows[0]["MOLD"].ToString();
+                gvwviewMachine.Columns[3].OwnerBand.Caption = dtMachine.Rows[0]["INPUT"].ToString();
+                gvwviewMachine.Columns[4].OwnerBand.Caption = dtMachine.Rows[0]["BALANCE"].ToString();
+                gvwviewMachine.Columns[5].OwnerBand.Caption = dtMachine.Rows[0]["QTY"].ToString();
+            }
+            if (dtModel != null)
+            {
+              //  gridModel.DataSource = dtModel;
+                gridModel.DataSource = dtModel.Select("SHORT_NAME <>'TOTAL'", "SHORT_NAME").CopyToDataTable();
+                bandedGridModel.Columns[5].OwnerBand.Caption = dtModel.Rows[0]["QTY"].ToString();
+                bandedGridModel.Columns[6].OwnerBand.Caption = dtModel.Rows[0]["MOLD_INPUT"].ToString();
+            }
+
+            for (int i = 0; i < gvwviewMachine.Columns.Count; i++)
+            {
+
+                gvwviewMachine.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                gvwviewMachine.Columns[i].AppearanceCell.Options.UseTextOptions = true;
+                gvwviewMachine.Columns[i].OptionsColumn.ReadOnly = true;
+                gvwviewMachine.Columns[i].OptionsColumn.AllowEdit = false;
+                gvwviewMachine.Columns[i].OptionsFilter.AllowFilter = false;
+                gvwviewMachine.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+                gvwviewMachine.Columns[i].AppearanceCell.Font = new System.Drawing.Font("Calibri", 12, FontStyle.Bold);
+                gvwviewMachine.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                //if (i > 0)
+                //{
+                //    grdView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                //    grdView.Columns[i].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                //    grdView.Columns[i].DisplayFormat.FormatString = "#,0.##";
+                //}
+            }
+
+            for (int i = 0; i < bandedGridModel.Columns.Count; i++)
+            {
+
+                bandedGridModel.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                bandedGridModel.Columns[i].AppearanceCell.Options.UseTextOptions = true;
+                bandedGridModel.Columns[i].OptionsColumn.ReadOnly = true;
+                bandedGridModel.Columns[i].OptionsColumn.AllowEdit = false;
+                bandedGridModel.Columns[i].OptionsFilter.AllowFilter = false;
+                bandedGridModel.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+                bandedGridModel.Columns[i].AppearanceCell.Font = new System.Drawing.Font("Calibri", 12, FontStyle.Bold);
+                bandedGridModel.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                //if (i > 0)
+                //{
+                //    grdView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                //    grdView.Columns[i].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                //    grdView.Columns[i].DisplayFormat.FormatString = "#,0.##";
+                //}
+            }
+
             DataTable dt = SEL_APS_PLAN_ACTUAL();
             if (dt != null && dt.Rows.Count > 0) 
                 _dt_layout = dt;
@@ -491,7 +550,39 @@ namespace IP
             }
         }
 
-    
+        public DataTable SEL_APS_PLAN_ACTUAL_IP(string TYPE)
+        {
+            COM.OraDB MyOraDB = new COM.OraDB();
+            System.Data.DataSet ds_ret;
+
+            try
+            {
+                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_PRODUCTION_LAYOUT_IP";
+
+                MyOraDB.ReDim_Parameter(2);
+                MyOraDB.Process_Name = process_name;
+
+
+                MyOraDB.Parameter_Name[0] = "ARG_TYPE";
+                MyOraDB.Parameter_Name[1] = "OUT_CURSOR";
+
+                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.Cursor;
+
+                MyOraDB.Parameter_Values[0] = TYPE;
+                MyOraDB.Parameter_Values[1] = "";
+
+                MyOraDB.Add_Select_Parameter(true);
+                ds_ret = MyOraDB.Exe_Select_Procedure();
+
+                if (ds_ret == null) return null;
+                return ds_ret.Tables[process_name];
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
 
         #endregion DB
