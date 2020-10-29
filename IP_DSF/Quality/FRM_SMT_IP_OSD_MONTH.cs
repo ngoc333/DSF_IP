@@ -22,6 +22,8 @@ namespace IP
         public delegate void MenuHandler();
         public MenuHandler OnClick = null;
 
+        FRM_PH_ANALYSIS FRMANA = new FRM_PH_ANALYSIS();
+
         #region db
         Addons.Database db = new Addons.Database();
         #endregion
@@ -65,6 +67,7 @@ namespace IP
                     else
                     {
                         FRM_SMT_IP_OSD_YEAR f1 = new FRM_SMT_IP_OSD_YEAR();
+                        
                         f1.Show();
                     }
                     break;
@@ -124,13 +127,19 @@ namespace IP
                 
                 for (int i = 0; i < gvwView.Columns.Count; i++)
                 {
+
                     gvwView.Columns[i].OptionsColumn.ReadOnly = true;
                     gvwView.Columns[i].OptionsColumn.AllowEdit = false;
                     gvwView.Columns[i].OptionsFilter.AllowFilter = false;
                     gvwView.Columns[i].OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
                     gvwView.Columns[i].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                     gvwView.Columns[i].AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-                    if (i>0)
+
+                    if (i==0)
+                    {
+                        gvwView.Columns[i].AppearanceCell.Font = new System.Drawing.Font("Calibri", 14, FontStyle.Bold);
+                    }
+                    else
                     {
                         gvwView.Columns[i].AppearanceCell.Font = new System.Drawing.Font("Calibri", 12, FontStyle.Bold);
                     }
@@ -215,6 +224,11 @@ namespace IP
                 bindingdatachart("OSP");
             }
             catch { }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FRMANA.Show();
         }
     }
 }

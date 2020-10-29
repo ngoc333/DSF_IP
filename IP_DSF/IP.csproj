@@ -329,6 +329,12 @@
     <Compile Include="Quality\FORM_IP_DEFFECTIVE_STATUS.designer.cs">
       <DependentUpon>FORM_IP_DEFFECTIVE_STATUS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Quality\FRM_PH_ANALYSIS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Quality\FRM_PH_ANALYSIS.designer.cs">
+      <DependentUpon>FRM_PH_ANALYSIS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Quality\FRM_SMT_IP_OSD_MONTH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -534,6 +540,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Quality\FORM_IP_DEFFECTIVE_STATUS.resx">
       <DependentUpon>FORM_IP_DEFFECTIVE_STATUS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quality\FRM_PH_ANALYSIS.resx">
+      <DependentUpon>FRM_PH_ANALYSIS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Quality\FRM_SMT_IP_OSD_MONTH.resx">
       <DependentUpon>FRM_SMT_IP_OSD_MONTH.cs</DependentUpon>
