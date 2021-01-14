@@ -12,6 +12,7 @@ using System.Data.OracleClient;
 using System.Data.SqlClient;
 //using ChartDirector;
 using System.Threading;
+using DevExpress.XtraEditors.Filtering.Templates;
 //using WarehouseMaterialSystem.ClassLib;
 
 
@@ -43,6 +44,8 @@ namespace IP
         List<string> _Loc_Blink = new List<string>();
 
         int _row1, _row2, _row3;
+        string _shift = "1";
+        bool _isLoad = true;
         #endregion Init
 
         #region Function
@@ -538,19 +541,28 @@ namespace IP
 
             try
             {
-                string process_name = "PKG_SPB_MOLD_WMS.SEL_APS_PLAN_ACTUAL_V2";
+                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_APS_ACTUAL_V2";
 
-                MyOraDB.ReDim_Parameter(1);
+                MyOraDB.ReDim_Parameter(4);
                 MyOraDB.Process_Name = process_name;
 
+                MyOraDB.Parameter_Name[0] = "ARG_WH_CD";
+                MyOraDB.Parameter_Name[1] = "ARG_DATE";
+                MyOraDB.Parameter_Name[2] = "ARG_SHIFT";
+                MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
 
-                MyOraDB.Parameter_Name[0] = "OUT_CURSOR";
+                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
 
-                MyOraDB.Parameter_Type[0] = (int)OracleType.Cursor;
-
-                MyOraDB.Parameter_Values[0] = "";
+                MyOraDB.Parameter_Values[0] = "30";
+                MyOraDB.Parameter_Values[1] = dtpDate.DateTime.ToString("yyyyMMdd");
+                MyOraDB.Parameter_Values[2] = _shift;
+                MyOraDB.Parameter_Values[3] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
+
                 ds_ret = MyOraDB.Exe_Select_Procedure();
 
                 if (ds_ret == null) return null;
@@ -600,6 +612,7 @@ namespace IP
 
         public void Frm_Mold_WS_Change_By_Shift_Load(object sender, EventArgs e)
         {
+            _isLoad = true;
             GoFullscreen();
             //timer2.Start();
             //lblDmc_Click(lblDmc, null);
@@ -614,17 +627,17 @@ namespace IP
                 lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
                 if (_time == 60)
                 {
-                    _dt_layout = SEL_APS_PLAN_ACTUAL();
+                   // _dt_layout = SEL_APS_PLAN_ACTUAL();
                     loaddata(true);
                     _time = 0;
                 }
 
-                if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 14 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 22)
-                    lbl_Shift.Text = "SHIFT 2";
-                else if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 6 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 14)
-                    lbl_Shift.Text = "SHIFT 1";
-                else
-                    lbl_Shift.Text = "SHIFT 3";
+                //if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 14 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 22)
+                //    lbl_Shift1.Text = "SHIFT 2";
+                //else if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 6 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 14)
+                //    lbl_Shift1.Text = "SHIFT 1";
+                //else
+                //    lbl_Shift1.Text = "SHIFT 3";
             }
             catch
             {
@@ -637,8 +650,23 @@ namespace IP
             {
                 if (this.Visible)
                 {
-                    
-                    _time = 59;                  
+                    _isLoad = true;
+
+                    dtpDate.EditValue = DateTime.Now;
+
+                    if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 14 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 22)
+                    {
+                        lbl_Shift_Click(lbl_Shift2, null);
+                    }
+                    else if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 6 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 14)
+                    {
+                        lbl_Shift_Click(lbl_Shift1, null);
+                    }
+                    else
+                    {
+                        lbl_Shift_Click(lbl_Shift3, null);
+                    }
+                    _time = 59;
                     timer1.Start();          
                 }
                 else
@@ -649,6 +677,10 @@ namespace IP
             }
             catch (Exception)
             {}
+            finally
+            {
+                _isLoad = false;
+            }
         }
 
         private void axGrid_BeforeEditMode(object sender, AxFPSpreadADO._DSpreadEvents_BeforeEditModeEvent e)
@@ -667,6 +699,34 @@ namespace IP
         private void cmdBack_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void lbl_Shift_Click(object sender, EventArgs e)
+        {
+            Control cmd = (Control)sender;
+            foreach (Control ctr in pnShift.Controls)
+            {
+                if (ctr.Name == cmd.Name)
+                {
+                    cmd.BackColor = Color.DodgerBlue;
+                    cmd.ForeColor = Color.White;
+                    _shift = cmd.Tag.ToString();
+                    if (!_isLoad) loaddata(true);
+                    _time = 0;
+                }
+                else
+                {
+                    ctr.BackColor = Color.Gray;
+                    ctr.ForeColor = Color.White;
+                }
+            }
+        }
+
+        private void dtpDate_EditValueChanged(object sender, EventArgs e)
+        {
+            if (_isLoad) return;
+            loaddata(true);
+            _time = 0;
         }
 
 
