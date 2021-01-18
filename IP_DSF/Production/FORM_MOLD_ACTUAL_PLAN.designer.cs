@@ -62,10 +62,13 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.axGrid = new AxFPSpreadADO.AxfpSpread();
             this.pnShift = new System.Windows.Forms.Panel();
-            this.dtpDate = new DevExpress.XtraEditors.DateEdit();
             this.lbl_Shift2 = new System.Windows.Forms.Label();
             this.lbl_Shift1 = new System.Windows.Forms.Label();
             this.lbl_Shift3 = new System.Windows.Forms.Label();
+            this.dtpDate = new DevExpress.XtraEditors.DateEdit();
+            this.lbl_dif1 = new System.Windows.Forms.Label();
+            this.lbl_dif2 = new System.Windows.Forms.Label();
+            this.lbl_dif3 = new System.Windows.Forms.Label();
             this.pnHeader.SuspendLayout();
             this.pnButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axGrid)).BeginInit();
@@ -308,22 +311,67 @@
             this.axGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.axGrid.DataSource = null;
-            this.axGrid.Location = new System.Drawing.Point(2, 179);
+            this.axGrid.Location = new System.Drawing.Point(2, 196);
             this.axGrid.Name = "axGrid";
             this.axGrid.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axGrid.OcxState")));
-            this.axGrid.Size = new System.Drawing.Size(1914, 881);
+            this.axGrid.Size = new System.Drawing.Size(1914, 864);
             this.axGrid.TabIndex = 660;
             this.axGrid.BeforeEditMode += new AxFPSpreadADO._DSpreadEvents_BeforeEditModeEventHandler(this.axGrid_BeforeEditMode);
             // 
             // pnShift
             // 
+            this.pnShift.Controls.Add(this.lbl_dif3);
+            this.pnShift.Controls.Add(this.lbl_dif2);
+            this.pnShift.Controls.Add(this.lbl_dif1);
             this.pnShift.Controls.Add(this.lbl_Shift2);
             this.pnShift.Controls.Add(this.lbl_Shift1);
             this.pnShift.Controls.Add(this.lbl_Shift3);
             this.pnShift.Location = new System.Drawing.Point(261, 108);
             this.pnShift.Name = "pnShift";
-            this.pnShift.Size = new System.Drawing.Size(628, 49);
+            this.pnShift.Size = new System.Drawing.Size(628, 82);
             this.pnShift.TabIndex = 710;
+            // 
+            // lbl_Shift2
+            // 
+            this.lbl_Shift2.BackColor = System.Drawing.Color.Gray;
+            this.lbl_Shift2.Font = new System.Drawing.Font("Calibri", 28.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_Shift2.ForeColor = System.Drawing.Color.White;
+            this.lbl_Shift2.Location = new System.Drawing.Point(209, 1);
+            this.lbl_Shift2.Name = "lbl_Shift2";
+            this.lbl_Shift2.Size = new System.Drawing.Size(204, 45);
+            this.lbl_Shift2.TabIndex = 705;
+            this.lbl_Shift2.Tag = "2";
+            this.lbl_Shift2.Text = "Shift 2";
+            this.lbl_Shift2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Shift2.Click += new System.EventHandler(this.lbl_Shift_Click);
+            // 
+            // lbl_Shift1
+            // 
+            this.lbl_Shift1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.lbl_Shift1.Font = new System.Drawing.Font("Calibri", 28.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_Shift1.ForeColor = System.Drawing.Color.White;
+            this.lbl_Shift1.Location = new System.Drawing.Point(4, 1);
+            this.lbl_Shift1.Name = "lbl_Shift1";
+            this.lbl_Shift1.Size = new System.Drawing.Size(204, 45);
+            this.lbl_Shift1.TabIndex = 696;
+            this.lbl_Shift1.Tag = "1";
+            this.lbl_Shift1.Text = "Shift 1";
+            this.lbl_Shift1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Shift1.Click += new System.EventHandler(this.lbl_Shift_Click);
+            // 
+            // lbl_Shift3
+            // 
+            this.lbl_Shift3.BackColor = System.Drawing.Color.Gray;
+            this.lbl_Shift3.Font = new System.Drawing.Font("Calibri", 28.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_Shift3.ForeColor = System.Drawing.Color.White;
+            this.lbl_Shift3.Location = new System.Drawing.Point(414, 1);
+            this.lbl_Shift3.Name = "lbl_Shift3";
+            this.lbl_Shift3.Size = new System.Drawing.Size(204, 45);
+            this.lbl_Shift3.TabIndex = 704;
+            this.lbl_Shift3.Tag = "3";
+            this.lbl_Shift3.Text = "Shift 3";
+            this.lbl_Shift3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Shift3.Click += new System.EventHandler(this.lbl_Shift_Click);
             // 
             // dtpDate
             // 
@@ -394,47 +442,41 @@
             this.dtpDate.ToolTipTitle = "Click vào để chọn ngày";
             this.dtpDate.EditValueChanged += new System.EventHandler(this.dtpDate_EditValueChanged);
             // 
-            // lbl_Shift2
+            // lbl_dif1
             // 
-            this.lbl_Shift2.BackColor = System.Drawing.Color.Gray;
-            this.lbl_Shift2.Font = new System.Drawing.Font("Calibri", 28.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_Shift2.ForeColor = System.Drawing.Color.White;
-            this.lbl_Shift2.Location = new System.Drawing.Point(209, 1);
-            this.lbl_Shift2.Name = "lbl_Shift2";
-            this.lbl_Shift2.Size = new System.Drawing.Size(204, 45);
-            this.lbl_Shift2.TabIndex = 705;
-            this.lbl_Shift2.Tag = "2";
-            this.lbl_Shift2.Text = "Shift 2";
-            this.lbl_Shift2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_Shift2.Click += new System.EventHandler(this.lbl_Shift_Click);
+            this.lbl_dif1.BackColor = System.Drawing.Color.White;
+            this.lbl_dif1.Font = new System.Drawing.Font("Calibri", 20.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_dif1.ForeColor = System.Drawing.Color.Blue;
+            this.lbl_dif1.Location = new System.Drawing.Point(3, 48);
+            this.lbl_dif1.Name = "lbl_dif1";
+            this.lbl_dif1.Size = new System.Drawing.Size(205, 31);
+            this.lbl_dif1.TabIndex = 706;
+            this.lbl_dif1.Text = "Difference Plan";
+            this.lbl_dif1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lbl_Shift1
+            // lbl_dif2
             // 
-            this.lbl_Shift1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.lbl_Shift1.Font = new System.Drawing.Font("Calibri", 28.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_Shift1.ForeColor = System.Drawing.Color.White;
-            this.lbl_Shift1.Location = new System.Drawing.Point(4, 1);
-            this.lbl_Shift1.Name = "lbl_Shift1";
-            this.lbl_Shift1.Size = new System.Drawing.Size(204, 45);
-            this.lbl_Shift1.TabIndex = 696;
-            this.lbl_Shift1.Tag = "1";
-            this.lbl_Shift1.Text = "Shift 1";
-            this.lbl_Shift1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_Shift1.Click += new System.EventHandler(this.lbl_Shift_Click);
+            this.lbl_dif2.BackColor = System.Drawing.Color.White;
+            this.lbl_dif2.Font = new System.Drawing.Font("Calibri", 20.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_dif2.ForeColor = System.Drawing.Color.Blue;
+            this.lbl_dif2.Location = new System.Drawing.Point(208, 48);
+            this.lbl_dif2.Name = "lbl_dif2";
+            this.lbl_dif2.Size = new System.Drawing.Size(205, 31);
+            this.lbl_dif2.TabIndex = 707;
+            this.lbl_dif2.Text = "Difference Plan";
+            this.lbl_dif2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lbl_Shift3
+            // lbl_dif3
             // 
-            this.lbl_Shift3.BackColor = System.Drawing.Color.Gray;
-            this.lbl_Shift3.Font = new System.Drawing.Font("Calibri", 28.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_Shift3.ForeColor = System.Drawing.Color.White;
-            this.lbl_Shift3.Location = new System.Drawing.Point(414, 1);
-            this.lbl_Shift3.Name = "lbl_Shift3";
-            this.lbl_Shift3.Size = new System.Drawing.Size(204, 45);
-            this.lbl_Shift3.TabIndex = 704;
-            this.lbl_Shift3.Tag = "3";
-            this.lbl_Shift3.Text = "Shift 3";
-            this.lbl_Shift3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_Shift3.Click += new System.EventHandler(this.lbl_Shift_Click);
+            this.lbl_dif3.BackColor = System.Drawing.Color.White;
+            this.lbl_dif3.Font = new System.Drawing.Font("Calibri", 20.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_dif3.ForeColor = System.Drawing.Color.Blue;
+            this.lbl_dif3.Location = new System.Drawing.Point(413, 48);
+            this.lbl_dif3.Name = "lbl_dif3";
+            this.lbl_dif3.Size = new System.Drawing.Size(205, 31);
+            this.lbl_dif3.TabIndex = 708;
+            this.lbl_dif3.Text = "Difference Plan";
+            this.lbl_dif3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FORM_MOLD_ACTUAL_PLAN
             // 
@@ -498,5 +540,8 @@
         private System.Windows.Forms.Label lbl_Shift2;
         private System.Windows.Forms.Label lbl_Shift1;
         private System.Windows.Forms.Label lbl_Shift3;
+        private System.Windows.Forms.Label lbl_dif3;
+        private System.Windows.Forms.Label lbl_dif2;
+        private System.Windows.Forms.Label lbl_dif1;
     }
 }
