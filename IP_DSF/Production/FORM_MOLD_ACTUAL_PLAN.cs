@@ -714,6 +714,7 @@ namespace IP
                 if (this.Visible)
                 {
                     _isLoad = true;
+                    dtpDate.EditValue = DateTime.Now;
 
                     lbl_dif1.Text = "";
                     lbl_dif2.Text = "";
