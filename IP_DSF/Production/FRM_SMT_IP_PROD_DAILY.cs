@@ -32,7 +32,8 @@ namespace IP
         #endregion
 
         private void FRM_ROLL_SLABTEST_MON_Load(object sender, EventArgs e)
-        {            
+        {
+            _isLoad = true;
             timer1.Enabled = true;
             timer1.Start();
             timer1.Interval = 1000;
@@ -351,6 +352,7 @@ namespace IP
         {
             try
             {
+                if (e.Band == null) return;
                 //return;
                 Rectangle rect = e.Bounds;
                 rect.Inflate(new Size(1, 1));
@@ -408,6 +410,7 @@ namespace IP
 
         private void dtpDate_EditValueChanged(object sender, EventArgs e)
         {
+            if (_isLoad) return;
             BindingData("IPP");
         }
 
@@ -425,14 +428,18 @@ namespace IP
             }
         }
 
+        bool _isLoad = true;
         private void FRM_ROLL_SLABTEST_MON_VisibleChanged(object sender, EventArgs e)
         {
             try
             {
                 if (this.Visible)
                 {
+                    _isLoad = true;
                     timer1.Start();
                     cnt = 40;
+                    _isLoad = false;
+
                 }
                 else
                     timer1.Stop();
