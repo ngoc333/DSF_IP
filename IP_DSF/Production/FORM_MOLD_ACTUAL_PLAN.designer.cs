@@ -62,13 +62,13 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.axGrid = new AxFPSpreadADO.AxfpSpread();
             this.pnShift = new System.Windows.Forms.Panel();
+            this.lbl_dif3 = new System.Windows.Forms.Label();
+            this.lbl_dif2 = new System.Windows.Forms.Label();
+            this.lbl_dif1 = new System.Windows.Forms.Label();
             this.lbl_Shift2 = new System.Windows.Forms.Label();
             this.lbl_Shift1 = new System.Windows.Forms.Label();
             this.lbl_Shift3 = new System.Windows.Forms.Label();
             this.dtpDate = new DevExpress.XtraEditors.DateEdit();
-            this.lbl_dif1 = new System.Windows.Forms.Label();
-            this.lbl_dif2 = new System.Windows.Forms.Label();
-            this.lbl_dif3 = new System.Windows.Forms.Label();
             this.pnHeader.SuspendLayout();
             this.pnButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axGrid)).BeginInit();
@@ -314,7 +314,7 @@
             this.axGrid.Location = new System.Drawing.Point(2, 196);
             this.axGrid.Name = "axGrid";
             this.axGrid.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axGrid.OcxState")));
-            this.axGrid.Size = new System.Drawing.Size(1914, 864);
+            this.axGrid.Size = new System.Drawing.Size(1914, 863);
             this.axGrid.TabIndex = 660;
             this.axGrid.BeforeEditMode += new AxFPSpreadADO._DSpreadEvents_BeforeEditModeEventHandler(this.axGrid_BeforeEditMode);
             // 
@@ -330,6 +330,42 @@
             this.pnShift.Name = "pnShift";
             this.pnShift.Size = new System.Drawing.Size(628, 82);
             this.pnShift.TabIndex = 710;
+            // 
+            // lbl_dif3
+            // 
+            this.lbl_dif3.BackColor = System.Drawing.Color.White;
+            this.lbl_dif3.Font = new System.Drawing.Font("Calibri", 20.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_dif3.ForeColor = System.Drawing.Color.Blue;
+            this.lbl_dif3.Location = new System.Drawing.Point(413, 48);
+            this.lbl_dif3.Name = "lbl_dif3";
+            this.lbl_dif3.Size = new System.Drawing.Size(205, 31);
+            this.lbl_dif3.TabIndex = 708;
+            this.lbl_dif3.Text = "Difference Plan";
+            this.lbl_dif3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbl_dif2
+            // 
+            this.lbl_dif2.BackColor = System.Drawing.Color.White;
+            this.lbl_dif2.Font = new System.Drawing.Font("Calibri", 20.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_dif2.ForeColor = System.Drawing.Color.Blue;
+            this.lbl_dif2.Location = new System.Drawing.Point(208, 48);
+            this.lbl_dif2.Name = "lbl_dif2";
+            this.lbl_dif2.Size = new System.Drawing.Size(205, 31);
+            this.lbl_dif2.TabIndex = 707;
+            this.lbl_dif2.Text = "Difference Plan";
+            this.lbl_dif2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbl_dif1
+            // 
+            this.lbl_dif1.BackColor = System.Drawing.Color.White;
+            this.lbl_dif1.Font = new System.Drawing.Font("Calibri", 20.75F, System.Drawing.FontStyle.Bold);
+            this.lbl_dif1.ForeColor = System.Drawing.Color.Blue;
+            this.lbl_dif1.Location = new System.Drawing.Point(3, 48);
+            this.lbl_dif1.Name = "lbl_dif1";
+            this.lbl_dif1.Size = new System.Drawing.Size(205, 31);
+            this.lbl_dif1.TabIndex = 706;
+            this.lbl_dif1.Text = "Difference Plan";
+            this.lbl_dif1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbl_Shift2
             // 
@@ -442,48 +478,12 @@
             this.dtpDate.ToolTipTitle = "Click vào để chọn ngày";
             this.dtpDate.EditValueChanged += new System.EventHandler(this.dtpDate_EditValueChanged);
             // 
-            // lbl_dif1
-            // 
-            this.lbl_dif1.BackColor = System.Drawing.Color.White;
-            this.lbl_dif1.Font = new System.Drawing.Font("Calibri", 20.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_dif1.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_dif1.Location = new System.Drawing.Point(3, 48);
-            this.lbl_dif1.Name = "lbl_dif1";
-            this.lbl_dif1.Size = new System.Drawing.Size(205, 31);
-            this.lbl_dif1.TabIndex = 706;
-            this.lbl_dif1.Text = "Difference Plan";
-            this.lbl_dif1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lbl_dif2
-            // 
-            this.lbl_dif2.BackColor = System.Drawing.Color.White;
-            this.lbl_dif2.Font = new System.Drawing.Font("Calibri", 20.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_dif2.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_dif2.Location = new System.Drawing.Point(208, 48);
-            this.lbl_dif2.Name = "lbl_dif2";
-            this.lbl_dif2.Size = new System.Drawing.Size(205, 31);
-            this.lbl_dif2.TabIndex = 707;
-            this.lbl_dif2.Text = "Difference Plan";
-            this.lbl_dif2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lbl_dif3
-            // 
-            this.lbl_dif3.BackColor = System.Drawing.Color.White;
-            this.lbl_dif3.Font = new System.Drawing.Font("Calibri", 20.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_dif3.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_dif3.Location = new System.Drawing.Point(413, 48);
-            this.lbl_dif3.Name = "lbl_dif3";
-            this.lbl_dif3.Size = new System.Drawing.Size(205, 31);
-            this.lbl_dif3.TabIndex = 708;
-            this.lbl_dif3.Text = "Difference Plan";
-            this.lbl_dif3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // FORM_MOLD_ACTUAL_PLAN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1920, 1062);
+            this.ClientSize = new System.Drawing.Size(1920, 1061);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.pnShift);
             this.Controls.Add(this.pnHeader);
