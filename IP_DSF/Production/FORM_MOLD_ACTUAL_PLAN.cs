@@ -12,6 +12,8 @@ using System.Data.OracleClient;
 using System.Data.SqlClient;
 //using ChartDirector;
 using System.Threading;
+using DevExpress.XtraEditors.Filtering.Templates;
+using System.Diagnostics;
 //using WarehouseMaterialSystem.ClassLib;
 
 
@@ -36,6 +38,7 @@ namespace IP
         int _countP = 0;
         int _countA = 0;
         DataTable _dt_layout = null;
+        bool _loadDif = false;
         List<string> _Loc_yellow = new List<string>();
 
         List<string> _Loc_green = new List<string>();
@@ -43,6 +46,8 @@ namespace IP
         List<string> _Loc_Blink = new List<string>();
 
         int _row1, _row2, _row3;
+        string _shift = "1";
+        bool _isLoad = true;
         #endregion Init
 
         #region Function
@@ -75,30 +80,88 @@ namespace IP
         }
     
         #region Binding Data Grid
-        public void set_qty_actual()
+        public void set_qty_actual(bool arg_status)
         {
             lbl_Plan.Text ="Total Plan: " + _countP;
             lbl_Actual.Text = "Total Actual: " + _countA;
 
+            if (_shift == "1")
+            {
+                lbl_dif1.Text = _countP == 0 ? "": ((float)_count / _countP * 100.0).ToString("###,##0.#") + "%";
+            }
+            else if (_shift == "2")
+            {
+                lbl_dif2.Text = _countP == 0 ? "" : ((float)_count / _countP * 100.0).ToString("###,##0.#") + "%";
+            }
+            else
+            {
+                lbl_dif3.Text = _countP == 0 ? "" : ((float)_count / _countP * 100.0).ToString("###,##0.#") + "%";
+            }
 
-            double d;
-            int x = _count;
-            int y = _countP;
-            d = (float)x / y * 100.0;
-            lbl_change.Text = "Difference Plan: " + d.ToString("###,###") + "%";
+
+            if (!arg_status) return;
+
+            if (_shift == "1")
+            {
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL("2");
+                SetTextDif(dtShif2, lbl_dif2);
+
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("3");
+                SetTextDif(dtShif3, lbl_dif3);
+
+            }
+            else if (_shift == "2")
+            {
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("1");
+                SetTextDif(dtShif1, lbl_dif1);
+
+                DataTable dtShif3 = SEL_APS_PLAN_ACTUAL("3");
+                SetTextDif(dtShif3, lbl_dif3);
+            }
+            else
+            {
+                DataTable dtShif2 = SEL_APS_PLAN_ACTUAL( "2");
+                SetTextDif(dtShif2, lbl_dif2);
+
+                DataTable dtShif1 = SEL_APS_PLAN_ACTUAL("3");
+                SetTextDif(dtShif1, lbl_dif1);
+            }
+        }
+
+        private void SetTextDif(DataTable dtShift, Label lbl_dif)
+        {
+            try
+            {
+                if (dtShift == null || dtShift.Rows.Count == 0)
+                {
+                    lbl_dif.Text = "";
+                    return;
+                }
+                int iPlanL = (int)dtShift.Compute("count(PLAN_L)", "");
+                int iPlanR = (int)dtShift.Compute("count(PLAN_R)", "");
+                int iYellowL = (int)dtShift.Compute("count(STATUS_L)", "STATUS_L = '1'");
+                int iYellowR = (int)dtShift.Compute("count(STATUS_R)", "STATUS_R = '1'");
+                if(iPlanL + iPlanR == 0)
+                {
+                    lbl_dif.Text = "";
+                    return;
+                }
+                lbl_dif.Text = ((double)(iYellowL + iYellowR) / (iPlanL + iPlanR) * 100.0).ToString("###,##0.#") + "%";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
 
 
 
-        }       
-        
 
-        
 
-        
 
         #endregion Binding Data Grid
-        
-        
+
+
         private void GoFullscreen()
         {
            
@@ -121,15 +184,15 @@ namespace IP
         {
             try
             {
-                DataTable dt = SEL_APS_PLAN_ACTUAL();
-                if (dt != null && dt.Rows.Count > 0)
-                    _dt_layout = dt;
+                DataTable dt = SEL_APS_PLAN_ACTUAL(_shift);
+               // if (dt != null && dt.Rows.Count > 0)
+                _dt_layout = dt;
 
                 this.axGrid.Hide();
                 DisplayGrid(_dt_layout);
-
+                set_qty_actual(arg_status);
                 //autoClick();
-         //       WarehouseMaterialSystem.ClassLib.WinAPI.AnimateWindow(this.axGrid.Handle, 400, WarehouseMaterialSystem.ClassLib.WinAPI.getSlidType("2"));
+                //       WarehouseMaterialSystem.ClassLib.WinAPI.AnimateWindow(this.axGrid.Handle, 400, WarehouseMaterialSystem.ClassLib.WinAPI.getSlidType("2"));
                 this.axGrid.Show();
                
             }
@@ -150,11 +213,12 @@ namespace IP
                 _countP = 0;
                 _countA = 0;
                 _count = 0;
-                if (arg_dt == null || arg_dt.Rows.Count == 0) return;
-                // axGrid.ClearRange(0, 0, 50, 50, true);
                 create_default();
                 _Loc_yellow.Clear();
                 _Loc_Blink.Clear();
+                if (arg_dt == null || arg_dt.Rows.Count == 0) return;
+                // axGrid.ClearRange(0, 0, 50, 50, true);
+                
                 // _Loc_green.Clear();
                 _row1 = Convert.ToInt32(arg_dt.Rows[0]["Row1"]);
                 _row2 = Convert.ToInt32(arg_dt.Rows[0]["Row2"]);
@@ -212,7 +276,7 @@ namespace IP
 
                 if (_Loc_Blink.Count > 0) tmr_blind.Start();
                 else tmr_blind.Stop();
-                 set_qty_actual();
+                 
             }
                
             catch
@@ -531,26 +595,35 @@ namespace IP
         #endregion Fuction
 
         #region DB
-        public DataTable SEL_APS_PLAN_ACTUAL()
+        public DataTable SEL_APS_PLAN_ACTUAL(string arg_shift)
         {
             COM.OraDB MyOraDB = new COM.OraDB();
             System.Data.DataSet ds_ret;
 
             try
             {
-                string process_name = "PKG_SPB_MOLD_WMS.SEL_APS_PLAN_ACTUAL_V2";
+                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_APS_ACTUAL_V2";
 
-                MyOraDB.ReDim_Parameter(1);
+                MyOraDB.ReDim_Parameter(4);
                 MyOraDB.Process_Name = process_name;
 
+                MyOraDB.Parameter_Name[0] = "ARG_WH_CD";
+                MyOraDB.Parameter_Name[1] = "ARG_DATE";
+                MyOraDB.Parameter_Name[2] = "ARG_SHIFT";
+                MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
 
-                MyOraDB.Parameter_Name[0] = "OUT_CURSOR";
+                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
 
-                MyOraDB.Parameter_Type[0] = (int)OracleType.Cursor;
-
-                MyOraDB.Parameter_Values[0] = "";
+                MyOraDB.Parameter_Values[0] = "30";
+                MyOraDB.Parameter_Values[1] = dtpDate.DateTime.ToString("yyyyMMdd");
+                MyOraDB.Parameter_Values[2] = arg_shift;
+                MyOraDB.Parameter_Values[3] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
+
                 ds_ret = MyOraDB.Exe_Select_Procedure();
 
                 if (ds_ret == null) return null;
@@ -600,6 +673,7 @@ namespace IP
 
         public void Frm_Mold_WS_Change_By_Shift_Load(object sender, EventArgs e)
         {
+            _isLoad = true;
             GoFullscreen();
             //timer2.Start();
             //lblDmc_Click(lblDmc, null);
@@ -612,19 +686,21 @@ namespace IP
             {
                 _time++;
                 lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
-                if (_time == 60)
+                if (_time >= 60)
                 {
-                    _dt_layout = SEL_APS_PLAN_ACTUAL();
-                    loaddata(true);
+                    // _dt_layout = SEL_APS_PLAN_ACTUAL();
+                    if (!_isLoad)
+                        loaddata(false); 
+                    
                     _time = 0;
                 }
 
-                if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 14 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 22)
-                    lbl_Shift.Text = "SHIFT 2";
-                else if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 6 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 14)
-                    lbl_Shift.Text = "SHIFT 1";
-                else
-                    lbl_Shift.Text = "SHIFT 3";
+                //if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 14 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 22)
+                //    lbl_Shift1.Text = "SHIFT 2";
+                //else if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 6 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 14)
+                //    lbl_Shift1.Text = "SHIFT 1";
+                //else
+                //    lbl_Shift1.Text = "SHIFT 3";
             }
             catch
             {
@@ -637,8 +713,29 @@ namespace IP
             {
                 if (this.Visible)
                 {
-                    
-                    _time = 59;                  
+                    _isLoad = true;
+                    dtpDate.EditValue = DateTime.Now;
+
+                    lbl_dif1.Text = "";
+                    lbl_dif2.Text = "";
+                    lbl_dif3.Text = "";
+
+                    dtpDate.EditValue = DateTime.Now;
+
+                    if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 14 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 22)
+                    {
+                        lbl_Shift_Click(lbl_Shift2, null);
+                    }
+                    else if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 6 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 14)
+                    {
+                        lbl_Shift_Click(lbl_Shift1, null);
+                    }
+                    else
+                    {
+                        lbl_Shift_Click(lbl_Shift3, null);
+                    }
+                    loaddata(true);
+                    _time = 0;
                     timer1.Start();          
                 }
                 else
@@ -649,6 +746,10 @@ namespace IP
             }
             catch (Exception)
             {}
+            finally
+            {
+                _isLoad = false;
+            }
         }
 
         private void axGrid_BeforeEditMode(object sender, AxFPSpreadADO._DSpreadEvents_BeforeEditModeEvent e)
@@ -667,6 +768,39 @@ namespace IP
         private void cmdBack_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void lbl_Shift_Click(object sender, EventArgs e)
+        {
+            Control cmd = (Control)sender;
+            foreach (Control ctr in pnShift.Controls)
+            {
+                if (!ctr.Name.Contains("lbl_Shift")) continue;
+                if (ctr.Name == cmd.Name)
+                {
+                    cmd.BackColor = Color.DodgerBlue;
+                    cmd.ForeColor = Color.White;
+                    _shift = cmd.Tag.ToString();
+                    if (!_isLoad)
+                    {
+                        loaddata(false);
+                    }
+                    _time = 0;
+                }
+                else
+                {
+                    ctr.BackColor = Color.Gray;
+                    ctr.ForeColor = Color.White;
+                }
+            }
+        }
+
+        private void dtpDate_EditValueChanged(object sender, EventArgs e)
+        {
+            if (_isLoad) return;
+            
+            loaddata(true);
+            _time = 0;
         }
 
 

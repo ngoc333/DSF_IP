@@ -45,12 +45,13 @@ namespace IP
         int _iCount = 0;
         int _bf_clickRow=0, _bf_clickCol=0;
         int _row1, _row2, _row3;
+        string _shift = "1";
+       // bool _isLoad = true;
 
-        
         //FORM_MOLD_PRODUCTION_POP _pop_change = new FORM_MOLD_PRODUCTION_POP();
         //FORM_MOLD_PRODUCTION_POP_PRE _pop_change_pre = new FORM_MOLD_PRODUCTION_POP_PRE();
-      //  Thread th;
-         
+        //  Thread th;
+
         List<string> _Loc_yellow = new List<string>();
 
         List<string> _Loc_green = new List<string>();
@@ -526,17 +527,22 @@ namespace IP
 
             try
             {
-                string process_name = "PKG_SPB_MOLD_WMS.SEL_MOLD_PRODUCTION_LAYOUT_V2";
+                string process_name = "PKG_SPB_MOLD_WMS.SEL_MOLD_PROD_LAYOUT_V3";
 
-                MyOraDB.ReDim_Parameter(1);
+                MyOraDB.ReDim_Parameter(3);
                 MyOraDB.Process_Name = process_name;
 
- 
-                MyOraDB.Parameter_Name[0] = "OUT_CURSOR";
+                MyOraDB.Parameter_Name[0] = "ARG_DATE";
+                MyOraDB.Parameter_Name[1] = "ARG_SHIFT";
+                MyOraDB.Parameter_Name[2] = "OUT_CURSOR";
 
-                MyOraDB.Parameter_Type[0] = (int)OracleType.Cursor;
+                MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] = (int)OracleType.Cursor;
 
-                MyOraDB.Parameter_Values[0] = "";
+                MyOraDB.Parameter_Values[0] = dtpDate.DateTime.ToString("yyyyMMdd");
+                MyOraDB.Parameter_Values[1] = _shift;
+                MyOraDB.Parameter_Values[2] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
                 ds_ret = MyOraDB.Exe_Select_Procedure();
@@ -557,20 +563,26 @@ namespace IP
 
             try
             {
-                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_PRODUCTION_LAYOUT_IP";
+                string process_name = "PKG_SPB_MOLD_WMS_V2.SEL_MOLD_PROD_LAYOUT_IP_V2";
 
-                MyOraDB.ReDim_Parameter(2);
+                MyOraDB.ReDim_Parameter(4);
                 MyOraDB.Process_Name = process_name;
 
 
                 MyOraDB.Parameter_Name[0] = "ARG_TYPE";
-                MyOraDB.Parameter_Name[1] = "OUT_CURSOR";
+                MyOraDB.Parameter_Name[1] = "ARG_DATE";
+                MyOraDB.Parameter_Name[2] = "ARG_SHIFT";
+                MyOraDB.Parameter_Name[3] = "OUT_CURSOR";
 
                 MyOraDB.Parameter_Type[0] = (int)OracleType.VarChar;
-                MyOraDB.Parameter_Type[1] = (int)OracleType.Cursor;
+                MyOraDB.Parameter_Type[1] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[2] = (int)OracleType.VarChar;
+                MyOraDB.Parameter_Type[3] = (int)OracleType.Cursor;
 
                 MyOraDB.Parameter_Values[0] = TYPE;
-                MyOraDB.Parameter_Values[1] = "";
+                MyOraDB.Parameter_Values[1] = dtpDate.DateTime.ToString("yyyyMMdd"); ;
+                MyOraDB.Parameter_Values[2] = _shift;
+                MyOraDB.Parameter_Values[3] = "";
 
                 MyOraDB.Add_Select_Parameter(true);
                 ds_ret = MyOraDB.Exe_Select_Procedure();
@@ -591,6 +603,7 @@ namespace IP
 
         public void Frm_Mold_WS_Change_By_Shift_Load(object sender, EventArgs e)
         {
+            _load_form = true;
             GoFullscreen();
             //lblDate.Text = string.Format(DateTime.Now.ToString("yyyy-MM-dd")) + "\n\r" + string.Format(DateTime.Now.ToString("HH:mm:ss"));
             //lblDate.Show();
@@ -639,7 +652,8 @@ namespace IP
 
                 if (_time >= _time_load)
                 {
-                    loaddata();
+                  
+                    loaddata();                  
                     _time = 0;
                 //    _Izone++;
                 //    if (_Izone <= 7)
@@ -671,7 +685,12 @@ namespace IP
             blind();
         }
 
-
+        private void dtpDate_EditValueChanged(object sender, EventArgs e)
+        {
+            if (_load_form) return;
+            loaddata();
+            _time = 0;
+        }
 
         private void Frm_Mold_WS_Change_By_Shift_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -687,11 +706,13 @@ namespace IP
             {
                 if (this.Visible)
                 {
+                    _load_form = true;
+                    dtpDate.EditValue = DateTime.Now;
                     _time_auto = 10;
                     if (_load_form)
                     {
                         timer1.Start();
-
+                        LoadShift();
                         loaddata();
                         _load_form = false;
                     }
@@ -791,7 +812,46 @@ namespace IP
             this.Hide();
         }
 
+        private void lbl_Shift_Click(object sender, EventArgs e)
+        {
+            Control cmd = (Control)sender;
+            foreach (Control ctr in pnShift.Controls)
+            {
+                if (!ctr.Name.Contains("lbl_Shift")) continue;
+                if (ctr.Name == cmd.Name)
+                {
+                    cmd.BackColor = Color.DodgerBlue;
+                    cmd.ForeColor = Color.White;
+                    _shift = cmd.Tag.ToString();
+                    if (!_load_form)
+                    {
+                        loaddata();
+                    }
+                    _time = 0;
+                }
+                else
+                {
+                    ctr.BackColor = Color.Gray;
+                    ctr.ForeColor = Color.White;
+                }
+            }
+        }
 
+        private void LoadShift()
+        {
+            if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 14 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 22)
+            {
+                lbl_Shift_Click(lbl_Shift2, null);
+            }
+            else if (Convert.ToInt16(DateTime.Now.ToString("HH")) >= 6 && Convert.ToInt16(DateTime.Now.ToString("HH")) < 14)
+            {
+                lbl_Shift_Click(lbl_Shift1, null);
+            }
+            else
+            {
+                lbl_Shift_Click(lbl_Shift3, null);
+            }
+        }
 
 
     }
